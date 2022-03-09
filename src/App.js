@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Main from "./Components/Main";
+import Quiz from "./Components/Quiz";
+import "./styles.css";
+import blobTop from "./Images/blobTop.svg";
+import blobBottom from "./Images/blobBottom.png";
+import { Switch, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+	return (
+		<>
+			<img src={blobTop} alt='top-img' className='ui-image' />
+			<div className='parent-container'>
+				<Switch>
+					<Route path='/' component={Main} exact />
+					<Route path='/quiz' component={Quiz} exact />
+				</Switch>
+			</div>
+			<img src={blobBottom} alt='bottom-img' className='ui-image-bottom' />
+		</>
+	);
 }
-
-export default App;
